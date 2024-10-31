@@ -1,5 +1,6 @@
 module Engeo
 
-# Write your package code here.
+using Reexport
+@reexport using Unitful
 
 end
