@@ -1,0 +1,7 @@
+name = "Engeo"
+uuid = "50bad66b-e46d-4fc3-b6e0-652f5a60ef63"
+authors = ["C. Naaktgeboren <NaaktgeborenC.PhD@gmail.com> and contributors"]
+version = "0.1.0"
+
+[compat]
+julia = "1.6.7"
