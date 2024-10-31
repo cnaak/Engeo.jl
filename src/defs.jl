@@ -24,3 +24,17 @@ end
 
 export Engine
 
+Vdu(y::Engine) = y.Vd / y.z
+
+D(y::Engine) = cbrt((4Vdu(y))/(π*y.rSD))
+
+S(y::Engine) = D(y) * y.rSD
+
+R(y::Engine) = S(y) / 2
+
+L(y::Engine) = y.rLR * R(y)
+
+V0(y::Engine) = Vdu(y) / (y.rv - 1.0)
+
+Vmax(y::Engine) = V0(y) + Vdu(y)
+
