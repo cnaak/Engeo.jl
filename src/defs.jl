@@ -5,7 +5,7 @@ struct Engine <: Any
     rLR::Float64        # =L/R
     rv::Float64         # =Vmax/Vmin
     z::Int64            # #cyl.
-    Vd::Unitful.Volume  # Swiped volume
+    Vd::Unitful.Volume{Float64}  # Swiped volume
     # Internal Constructor
     Engine(rsd::AbstractFloat,
            rlr::AbstractFloat,
@@ -17,7 +17,8 @@ struct Engine <: Any
         @assert rv  > 0.0
         @assert zz  >=  1
         @assert vd  > 0.0 * u"m^3"
-        return new(rsd, rlr, rv, zz, uconvert(u"m^3", vd))
+        return new(rsd, rlr, rv, zz,
+                   Float64(uconvert(u"m^3", vd).val) * u"m^3")
     end
 end
 
