@@ -40,13 +40,17 @@ Vmax(y::Engine) = V0(y) + Vdu(y)
 
 export Vdu, D, S, R, L, V0, Vmax
 
-function x(y::Engine, α::Float64)
+function x(y::Engine, α)
     L(y) * (1.0 - √(1.0 - (sin(α)/y.rLR)^2)) + R(y) * (1.0 - cos(α))
 end
 
-function V(y::Engine, α::Float64)
-    V0(y) + (π/4) * x(y, α) * D(y)
+function V(y::Engine, α)
+    V0(y) + (π/4) * x(y, α) * D(y)^2
 end
 
-export x, V
+function dVdα(y::Engine, α::Float64)
+    ForwardDiff.derivative(α -> V(y, α), α)
+end
+
+export x, V, dVdα
 
