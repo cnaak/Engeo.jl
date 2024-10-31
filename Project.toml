@@ -3,5 +3,11 @@ uuid = "50bad66b-e46d-4fc3-b6e0-652f5a60ef63"
 authors = ["C. Naaktgeboren <NaaktgeborenC.PhD@gmail.com> and contributors"]
 version = "0.1.0"
 
+[deps]
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
+Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
+
 [compat]
+Reexport = "1.2.2"
+Unitful = "1.21.0"
 julia = "1.6.7"
