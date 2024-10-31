@@ -38,3 +38,15 @@ V0(y::Engine) = Vdu(y) / (y.rv - 1.0)
 
 Vmax(y::Engine) = V0(y) + Vdu(y)
 
+export Vdu, D, S, R, L, V0, Vmax
+
+function x(y::Engine, α::Float64)
+    L(y) * (1.0 - √(1.0 - (sin(α)/y.rLR)^2)) + R(y) * (1.0 - cos(α))
+end
+
+function V(y::Engine, α::Float64)
+    V0(y) + (π/4) * x(y, α) * D(y)
+end
+
+export x, V
+
