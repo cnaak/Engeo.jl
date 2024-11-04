@@ -5,5 +5,6 @@ using Reexport
 
 # Include the definitions source
 include("defs.jl")
+include("calc.jl")
 
 end
